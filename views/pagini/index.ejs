@@ -3,6 +3,7 @@
 
 <head>
     <%- include('../fragmente/head'); %>
+
 </head>
 
 <body>
@@ -368,19 +369,74 @@
 
         <section id="recomandate">
             <h2>Our Recommendations</h2>
+            <!-- <% for(let p of locals.produse){ %>
+                <p><%- p.id %> <%- p.name %> <%- p.price %></p>
+            <% } %> -->
+
             <div id="galerie_statica">
-            <p> <%- locals.ip %></p>
-             <% for(let imag of locals.imagini){ %>
+                <% let anotimp = "";
+                d = new Date();
+                luna = d.getMonth();
+                if(luna < 2 || luna == 11)
+                    anotimp = "iarna";
+                else if(luna >= 2 || luna < 5)
+                    anotimp = "primavara";
+                else if(luna >= 5 || luna < 8)
+                    anotimp = "vara";
+                else if(luna >= 8 || luna < 11)
+                    anotimp = "toamna";
+                %>
+
+             <% i = 0;
+              for(let imag of locals.imagini){ 
+                  i=i+1; %>
+                <% if(anotimp == imag.anotimp) {     
+                    if( i == 5 || i == 11 ) { %>
+                <figure class="ecran_mare_galerie">
+                    <picture>
+                        <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
+                        <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
+                        <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
+                    </picture>
+                    <figcaption><%- imag.titlu %></figcaption>
+                </figure>
                 <figure>
                     <picture>
                         <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
                         <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
-                        <img src="<%-imag.mare %>" alt = "text alternativ" />
+                        <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
                     </picture>
-                    <figcaption><%- imag.descriere %></figcaption>
+                    <figcaption><%- imag.titlu %></figcaption>
                 </figure>
+                <% } else { %>    
+                    <figure>
+                        <picture>
+                            <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
+                            <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
+                            <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
+                        </picture>
+                        <figcaption><%- imag.titlu %></figcaption>
+                    </figure>
+                    <% } %>
+                <% } %>
             <% } %>
         </div>
+
+        <div id="galerie-animata" class="galerie-a">
+            <% for (let imag of locals.imagini){  %>
+                <figure>
+                    <picture>
+                        <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                        <source srcset="/<%-imag.mic%>" media="(max-width:700px)"/>
+                        <!-- <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/> -->
+                        <img src="/<%-imag.mare%>" alt="text"/>
+                    </picture>
+                    <figcaption><%- imag.titlu%> </figcaption>
+                </figure>
+            <% } %>
+            
+        </div>
+
 
             <!-- <p>We all have our own idea of what makes us feel beautiful, and that's what makes us unique. Unfortunately,
                 finding clothing that reflects your unique style can be a challenge.</p>

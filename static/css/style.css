@@ -512,27 +512,118 @@ tbody tr:hover {
 	flex-direction: column;
 }
 /* -------------- GALERIE --------------- */
+.ecran_mare_galerie{
+	display: none;
+}
+@media only screen and (min-width: 1300px) {
 #galerie_statica {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 10px;
 	counter-reset: nrimag; /* default e 0 */
 }
-
-#galerie_statica img:nth-child(7) {
-	grid-area: 3/2/4/3;
-}
-
 #galerie_statica img {
 	width: 100%;
+}
+.imagine_gal_statica:hover {
+	animation-name: animatie_galerie;
+	animation-duration: 10s;
+}
+@keyframes animatie_galerie {
+	25% {
+		width: 550px;
+		opacity: 10%;
+		border-radius: 2%, 2% 2% 2%;
+	}
+	50% {
+		width: 600px;
+		opacity: 15%;
+		border-radius: 5% 5% 5% 5;
+
+	}
+	75% {
+		width: 650px;
+		opacity: 25%;
+		border-radius: 10% 10% 10% 10%;
+
+	}
+	100% {
+		width: 700px;
+		opacity: 50%;
+		border-radius: 15% 15% 15% 15%;
+
+	}
+}
+#galerie_statica figure:nth-child(5) {
+	visibility: hidden;
+}
+#galerie_statica figure:nth-child(5) {
+	grid-area: 2/2/2/2;
+}
+#galerie_statica figure:nth-child(11) {
+	visibility: hidden;
+}
+#galerie_statica figure:nth-child(11) {
+	grid-area: 4/2/4/2;
+}
+#galerie_statica >figure:nth-child(16) {
+	display: none;
 }
 #galerie_statica figcaption {
 	counter-increment: nrimag;
 }
 
 #galerie_statica figcaption::before {
-	content: counter(nrimag) ") ";
+	content: counter(nrimag, lower-roman) ". ";
 }
+.ecran_mare_galerie {
+	display: block;
+	}	
+}
+@media only screen and (min-width: 700px) and (max-width: 1300px) {
+	#galerie_statica {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 10px;
+		counter-reset: nrimag; /* default e 0 */
+	}
+	#galerie_statica img {
+		width: 100%;
+	}
+
+	#galerie_statica figcaption {
+		counter-increment: nrimag;
+	}
+	
+	#galerie_statica figcaption::before {
+		content: counter(nrimag, lower-roman) ". ";
+	}
+	#galerie_statica >figure:nth-child(16) {
+		display: none;
+	}
+}
+@media only screen and (max-width: 700px) {
+	#galerie_statica {
+		display: inline-block;
+		grid-gap: 5px;
+		counter-reset: nrimag; /* default e 0 */
+	}
+	#galerie_statica img {
+		width: 100%;
+	}
+	#galerie_statica figcaption {
+		counter-increment: nrimag;
+	}
+	
+	#galerie_statica figcaption::before {
+		content: counter(nrimag, lower-roman) ". ";
+	}
+	#galerie_statica >figure:nth-child(16) {
+		display: none;
+	}
+}
+
+
 /* VIDEO */
 .video {
 	width: 100%;
@@ -685,3 +776,5 @@ tbody tr:hover {
 	margin-right: 2cm;
 	margin-left: 1cm;
 }
+
+/* TEST */

@@ -2,32 +2,94 @@
 	"cale_galerie":"static/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe"
+			"fisier":"white-tshirt.png",
+			"titlu":"White T-shirt",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață"
+			"fisier":"sacou-roz.png",
+			"titlu":"Pink Coat",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate"
+			"fisier":"rochie-neagra.png",
+			"titlu":"Black Dress",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară"
+			"fisier":"red-coat.png",
+			"titlu":"Red Coat",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"fisier":"palton-gri.png",
+			"titlu":"Grey Coat",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"fisier":"black-jacket.png",
+			"titlu":"Black Jacket",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"fisier":"white-flower-dress.png",
+			"titlu":"White Dress",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
+		},
+		{
+			"fisier":"red-dress.png",
+			"titlu":"Red Dress",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
+		},
+		{
+			"fisier":"yellow-sweatshirt.png",
+			"titlu":"Yellow Sweatshirt",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
+		},
+		{
+			"fisier":"red-jacket.png",
+			"titlu":"Red Jacket",
+			"text-descriere":"Descriere",
+			"anotimp":"primavara"
+		},
+		{
+			"fisier":"pink-dress.png",
+ 			"titlu":"Pink Dress",
+ 			"text-descriere":"Descriere",
+ 			"anotimp":"primavara"
+		},
+		{
+ 			"fisier":"back-stripped-pants.png",
+ 			"titlu":"Black Stripped Pants",
+ 			"text-descriere":"Descriere",
+ 			"anotimp":"primavara"
+		}, 
+		{		
+			"fisier":"white_jacket.png",
+ 			"titlu":"White Jacket",
+ 			"text-descriere":"Descriere",
+		 	"anotimp":"iarna"
+		}, 
+		{		
+			"fisier":"green_top.png",
+			 "titlu":"Green Top",
+			 "text-descriere":"Descriere",
+			 "anotimp":"primavara"
+		},
+		{		
+			"fisier":"jeans_jacket.png",
+			 "titlu":"Jeans Jacket",
+			 "text-descriere":"Descriere",
+			 "anotimp":"primavara"
 		}
 	]
 }
