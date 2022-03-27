@@ -526,10 +526,14 @@ tbody tr:hover {
 	width: 100%;
 }
 .imagine_gal_statica:hover {
-	animation-name: animatie_galerie;
-	animation-duration: 10s;
+	transition-duration: 125ms;
+	transform: scaleX(1.4);
+	height: 140%;
+	opacity: 50%;
+	border-radius: 15px;
+
 }
-@keyframes animatie_galerie {
+/* @keyframes animatie_galerie {
 	25% {
 		width: 550px;
 		opacity: 10%;
@@ -553,7 +557,7 @@ tbody tr:hover {
 		border-radius: 15% 15% 15% 15%;
 
 	}
-}
+} */
 #galerie_statica figure:nth-child(5) {
 	visibility: hidden;
 }

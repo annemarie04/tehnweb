@@ -373,55 +373,8 @@
                 <p><%- p.id %> <%- p.name %> <%- p.price %></p>
             <% } %> -->
 
-            <div id="galerie_statica">
-                <% let anotimp = "";
-                d = new Date();
-                luna = d.getMonth();
-                if(luna < 2 || luna == 11)
-                    anotimp = "iarna";
-                else if(luna >= 2 || luna < 5)
-                    anotimp = "primavara";
-                else if(luna >= 5 || luna < 8)
-                    anotimp = "vara";
-                else if(luna >= 8 || luna < 11)
-                    anotimp = "toamna";
-                %>
-
-             <% i = 0;
-              for(let imag of locals.imagini){ 
-                  i=i+1; %>
-                <% if(anotimp == imag.anotimp) {     
-                    if( i == 5 || i == 11 ) { %>
-                <figure class="ecran_mare_galerie">
-                    <picture>
-                        <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
-                        <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
-                        <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
-                    </picture>
-                    <figcaption><%- imag.titlu %></figcaption>
-                </figure>
-                <figure>
-                    <picture>
-                        <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
-                        <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
-                        <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
-                    </picture>
-                    <figcaption><%- imag.titlu %></figcaption>
-                </figure>
-                <% } else { %>    
-                    <figure>
-                        <picture>
-                            <source srcset="<%- imag.mic%>" media = "(max-width:800px)"/>
-                            <source srcset="<%- imag.mediu%>" media = "(max-width:1200px)"/>
-                            <img class = "imagine_gal_statica" src="<%-imag.mare %>" alt = <%- imag.titlu %> />
-                        </picture>
-                        <figcaption><%- imag.titlu %></figcaption>
-                    </figure>
-                    <% } %>
-                <% } %>
-            <% } %>
-        </div>
-
+         <div id="galerie_statica"><%- include('../fragmente/galeriestatica'); %> </div>   
+ 
         <div id="galerie-animata" class="galerie-a">
             <% for (let imag of locals.imagini){  %>
                 <figure>

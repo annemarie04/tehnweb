@@ -33,6 +33,10 @@ app.get("/contactus", function(req,res)  {
     res.render('pagini/contactus')
     res.end()
 });
+app.get("/newapparel", function(req,res)  {
+    res.render('pagini/newapparel', {imagini:obImagini.imagini})
+    res.end()
+});
 
 
 // ----------- curs 4 / Galerie-statica ------------
