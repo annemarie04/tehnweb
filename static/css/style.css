@@ -56,6 +56,14 @@ body {
 	height: 1000px;
 	margin: 0px;
 }
+body.dark{
+	--background_color: black;
+	--text_color: white;
+	--text_color2: #f5f400;
+	--border_color: #8819ff;
+	--border_color2:#a8a800;
+	--highlight_color:#7600f5 ;
+}
 
 main {
 	display: contents;

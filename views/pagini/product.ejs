@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <%- include("../fragmente/head") %>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                    <p>Colectie: <span class="an_colectie"><%- locals.prod.an_colectie %> </span></p>
+                    <p>Marime: <span class="marime"><%- locals.prod.marime %> </span></p>
+                    <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                    <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+                    <p>Materiale: <span class="materiale"><%- locals.prod.materiale%> </span></p>
+                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <figure class="imag-produs">
+                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>    
+                </article>
+            
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

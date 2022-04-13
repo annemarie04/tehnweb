@@ -1,4 +1,4 @@
-<h1 class="titlu-watermark">Arason Unique Clothing</h1>
+<h1 class="titlu-watermark">Arason Unique Clothing <%- locals.propGenerala %></h1>
 <header id="top">
         <nav class="top-nav">
             <div>
@@ -8,7 +8,7 @@
                 <div class='menu-button'></div>
             </label>
             <ul class="menu meniu">
-                <li class="casuta"><a href="index.html" class="meniutranz-lg">Home</a></li>
+                <li class="casuta"><a href="/home" class="meniutranz-lg">Home</a></li>
                 
                 <li ><a href="index.html" class="meniutranz-md"><i class="fas fa-home"></i></a></li>
                 <li><a href="#despre" class="meniutranz">About us</a></li>
@@ -17,9 +17,10 @@
                         <a href="#articole" id="dropbtn" class="dropbtn meniutranz ">New Collection</a>
                         <div class="dropdown-content">
                             <ul class="dropdown_menu">
-                                <li><a href="#bluze">Tops</a></li>
-                                <li><a href="#rochii">Dresses</a></li>
-                                <li><a href="#pantaloni">Trousers</a></li>
+                                <li><a href="/products">All</a></li>
+                                <li><a href="/products?tip=topuri">Tops</a></li>
+                                <li><a href="/products?tip=rochii">Dresses</a></li>
+                                <li><a href="/products?tip=sacouri">Jackets</a></li>
                             </ul>
                         </div>
                     </div>
@@ -41,8 +42,20 @@
                 <li><a href="#reviews" class="meniutranz">Client Reviews</a></li>
                 <li><a class="meniutranz">FAQ</a></li>
                 <li><a href="/contactus" class="meniutranz">Contact us</a></li>
+                <li><a href="/inregistrare" class="meniutranz">Inregistrare</a></li>
+
             </ul>
+
         </nav>
+    <p><button id="btn_tema">Dark Mode</button></p>
+    <script>
+        var tema = localStorage.getItem("tema");
+    if(tema)
+        document.body.classList.add("dark");
+    else
+        document.body.classList.remove("dark");
+
+    </script>
     </header>
     <h1 class="titlu">Arason Unique Clothing</h1>
 

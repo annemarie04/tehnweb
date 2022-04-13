@@ -3,7 +3,7 @@
 
 <head>
     <%- include('../fragmente/head'); %>
-
+    
 </head>
 
 <body>
@@ -376,7 +376,9 @@
          <div id="galerie_statica"><%- include('../fragmente/galeriestatica'); %> </div>   
  
         <div id="galerie-animata" class="galerie-a">
-            <% for (let imag of locals.imagini){  %>
+            <% for (let imag of locals.imagini_random){  %>
+           
+        
                 <figure>
                     <picture>
                         <!-- il ia pe primul care se potriveste cu query-ul din media-->
@@ -386,6 +388,8 @@
                     </picture>
                     <figcaption><%- imag.titlu%> </figcaption>
                 </figure>
+                
+
             <% } %>
             
         </div>
