@@ -291,6 +291,6 @@ app.get('*', function(req, res){
 // alert(button.innerHTML);
 // // --------------------- End ----------------------
 
-var s_port = process.env.PORT || 5000;
+var s_port = process.env.PORT || 8080;
 app.listen(s_port);
 console.log("A pornit!");
