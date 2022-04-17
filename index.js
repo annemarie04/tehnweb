@@ -11,7 +11,18 @@ const session = require('express-session');
 
 app = express();
 
-var client = new Client({user: "anne", password: "2017", database: "bd_arason", host: "localhost", port: 5432});
+// var client = new Client({user: "anne", password: "2017", database: "bd_arason", host: "localhost", port: 5432});
+// client.connect();
+var client = new Client({
+    user: "tjcmnycknpyunl", 
+    password: "3392e4ada4df84e796d35dd2e1d32f336102441bacffd34d2eeb73ca44f43068",
+    database: "d1i1rtikn13hb",
+    host: "ec2-52-86-56-90.compute-1.amazonaws.com",
+    port: 5432,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
 client.connect();
 
 const obGlobal={obImagini:null, obErori:null};
