@@ -48,13 +48,38 @@
                     <% for( let prod of locals.produse) { %>
                         <article class="produs" >
                             <h3 class="nume">Name: <a href="/product/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                            <h2 class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></h2>
+
                             <div class="info-prod">
-                                <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
+                                <table>
+                                    <tr>
+                                      <td class="pret"> Pret: </td>
+                                      <td><span class="val-pret"><%- prod.pret%></span></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="culoare"> Culoare: </td>
+                                      <td><span class="culoare"><%- prod.culoare %> </span>/td>
+                                    </tr>
+                                    <tr>
+                                      <td class="descriere">Descriere: </td>
+                                      <td><span class="val-descriere"><%- prod.descriere%></span></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="categorie">Data adăugare: </td>
+                                      <td><span class="categorie"><%- prod.data_adaugare %> </span></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="disponibil">Disponibil: </td>
+                                      <td><span class="disponibil"><%- prod.sold_out %> </span></td>
+                                    </tr>
+                                  </table>
+
+                                <!-- <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
                                 <p class="an_colectie">An Colectie: <span class="val-gramaj"><%- prod.an_colectie%></span></p>
-                                <p class="marime">Marime: <span class="val-marime"><%- prod.marime%></span></p>
+                                <p class="marime">Marime: <span class="val-marime"><%- prod.marime%></span></p> -->
                             </div>
-                            <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
-                            <p class="descriere">Descriere:<span class="val-descriere"><%- prod.descriere%></span></p>
+                            <!-- <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></p>
+                            <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p> -->
 
                             <figure>
                                 <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
