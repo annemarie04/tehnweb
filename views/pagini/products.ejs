@@ -18,23 +18,22 @@
         <br></br>
 
         <!-- INPUT TIP RANGE -->
-        <label> Pret minim: 0 <input type="range" id="inp-pret1" value="0" min="0" max="13"> 13 <span
+        <label> Pret minim: 0 <input type="range" id="inp-pret1" value="0" min="0" max="16"> 16 <span
             id="infoRange1">  (0)</span></label>
-        <label> Pret maxim: 0 <input type="range" id="inp-pret2" value="0" min="0" max="13"> 13 <span
-            id="infoRange2">  (0)</span></label>
+        <label> Pret maxim: 0 <input type="range" id="inp-pret2" value="16" min="0" max="16"> 16 <span
+            id="infoRange2">  (16)</span></label>
         <br></br>
 
         <!-- DATALIST -->
         <br></br>
-        <label>Datalist: </label>
-        <input list="inp-categorii" id="inp-categorie">
-         <datalist id="inp-categorii">
-            <option id="sel-toate" selected value="toate">toate</option>
-                <%   for (let opt of locals.optiuni) { %>
-                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+        <label>An: </label>
+        <input list="inp-an" id="inp-an_colectie" value="toate">
+         <datalist id="inp-an">
+            <option id="sel-toate2" value="toate" selected >toate</option>
+                <%   for (let opt of locals.ani) { %>
+                <option value="<%- opt.an_colectie %>"><%- opt.an_colectie %> </option>
                 <% } %>
         </datalist>
-        <input type="submit">
         <br></br>
 
         <!-- RADIO INPUT -->
@@ -55,23 +54,21 @@
         </div>
 
         <!-- INPUT TIP CHECKBOX -->
-        <input type="checkbox" id="soldout0" name="soldout0" value="FALSE">
-        <label for="vehicle0"> SOLD OUT!</label><br>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="TRUE">
-        <label for="vehicle1"> NOT SOLD OUT</label><br>
-        <input type="submit" value="Submit">
+        <input type="checkbox" id="soldout0" name="soldout0" value="false">
+        <label for="option0"> AVAILABLE</label><br>
+        <input type="checkbox" id="soldout1" name="soldout1" value="true">
+        <label for="option1"> SOLD OUT</label><br>
 
         <!-- TEXTAREA INPUT -->
         <label>Descriere</label>
         <br><br>
         <textarea id="textarea" name="descriere" rows="4" cols="50">Descrieti produsul cautat aici.</textarea>
-        <input type="submit" value="Submit">
         <br><br>
 
         <!-- SELECT SIMPLU -->
         <label>Select simplu:
             <select id="inp-categorie">
-                < <option id="sel-toate" selected value="toate">toate</option>
+                < <option id="sel-toate"selected value="toate">toate</option>
                     <%   for (let opt of locals.optiuni) { %>
                     <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
                     <% } %>
@@ -80,10 +77,10 @@
         <!-- SELECT MULTIPLU -->
 
         <label>Select multiplu:
-            <select id="inp-categorie" multiple>
-                < <option id="sel-toate" selected value="toate">toate</option>
-                    <%   for (let opt of locals.tipuri) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+            <select id="inp-culoare" multiple>
+                < <option id="sel-toate3" selected value="toate">toate</option>
+                    <%   for (let culoare of locals.culori) { %>
+                    <option value="<%- culoare.culoare %>"><%- culoare.culoare %> </option>
                     <% } %>
             </select>
         </label>
@@ -146,7 +143,7 @@
                                 </tr>
                                 <tr>
                                     <td class="an_colectie">An Colectie: </td>
-                                    <td><span class="val-gramaj"><%- prod.an_colectie%></span></td>
+                                    <td><span class="val-an_colectie"><%- prod.an_colectie%></span></td>
                                 </tr>
                             </table>
                         </div>

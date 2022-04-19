@@ -44,12 +44,22 @@ if(process.env.SITE_ONLINE){
     });
 }
 else{
-    var client = new Client({
-        user: "anne", 
-        password: "2017", 
-        database: "bd_arason", 
-        host: "localhost", 
-        port: 5432});
+    // var client = new Client({
+    //     user: "anne", 
+    //     password: "2017", 
+    //     database: "bd_arason", 
+    //     host: "localhost", 
+    //     port: 5432});
+        var client = new Client({
+            user: "tjcmnycknpyunl", 
+            password: "3392e4ada4df84e796d35dd2e1d32f336102441bacffd34d2eeb73ca44f43068",
+            database: "d1i1rtikn13hb",
+            host: "ec2-52-86-56-90.compute-1.amazonaws.com",
+            port: 5432,
+            ssl: {
+                rejectUnauthorized: false
+            }
+        });
 }
 client.connect();
 //---------------------END CLIENT CONNECT-----------------------
@@ -249,14 +259,17 @@ function compileSass(numar_imagini){
 app.get("/products", function(req, res) {
     client.query("select * from unnest(enum_range(null::categ_colectie))", function(err, rezCateg){
     
-
         var cond_where=req.query.tip ? ` tip_produs='${req.query.tip}'` : " 1=1";
-    
 
         client.query("select * from articole where "+cond_where, function(err, rezQuery){
+            
         // console.log(rezQuery);
-            client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezTip){
-                res.render('pagini/products', {produse:rezQuery.rows, optiuni:rezCateg.rows, tipuri:rezTip.rows});
+            client.query("select DISTINCT culoare from articole ORDER BY culoare ASC ", function(err, rezCuloare){
+                client.query("select DISTINCT an_colectie from articole ORDER BY an_colectie ASC ", function(err, rezAn){
+                    client.query("select * from unnest(enum_range(null::tipuri_produse))", function(err, rezTip){
+                        res.render('pagini/products', {produse:rezQuery.rows, optiuni:rezCateg.rows, tipuri:rezTip.rows, ani:rezAn.rows, culori:rezCuloare.rows});
+                    });
+                });
             });
         });
     });
@@ -383,7 +396,7 @@ app.get('/*.ejs', function(req, res){
     // res.render('pagini/forbidden');
 });
 
-app.get('*', function(req, res){
+app.get('*', function(req, res, next){
         randeazaErori(res,404,true)
         res.locals.propGenerala= "ceva care se afiseaza pe toate paginile";
         res.locals.utilizator=req.session.utilizator;

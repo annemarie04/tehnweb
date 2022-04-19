@@ -39,8 +39,9 @@ window.addEventListener("load", function(){
 
 
         var valCategorie = document.getElementById("inp-categorie").value;
-
         var articole = document.getElementsByClassName("produs");
+        var valAn= document.getElementById("inp-an_colectie").value;
+        
 
 
         for(let art of articole){
@@ -48,14 +49,14 @@ window.addEventListener("load", function(){
 
             // filtrare nume
             let numeArt = art.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
-            let cond1;
+            let cond1 = true;
             // regex
-            if(valNume.search('([*])')){
+            if(valNume && valNume.search('([*])')){
                 let temp = valNume.split('*')[0] + '.*' + valNume.split('*')[1];
                 cond1 = (numeArt.match(`${temp}`));
                 
             }
-            else{
+            else if(valNume) {
                 cond1 = (numeArt.includes(valNume));
             }
 
@@ -66,14 +67,18 @@ window.addEventListener("load", function(){
 
             // filtrare pret
             let pretArt =  parseInt(art.getElementsByClassName("val-pret")[0].innerHTML);
-            let cond3 = (valPretMin <= pretArt && valPretMax >= pretArt);
+            let cond3 = (valPretMin <=pretArt && valPretMax >= pretArt);
 
             // filtare categorie colectie
             let categorieArt = art.getElementsByClassName("val-categorie")[0].innerHTML;
             let cond4 = (valCategorie == "toate") || (categorieArt == valCategorie);
 
+            //filtrare an
+            let anArt = art.getElementsByClassName("val-an_colectie")[0].innerHTML;
+            cond5 = (valAn == anArt)
+
             // filtrare finala
-            let conditieFinala = cond1 && cond2 && cond3 && cond4;
+            let conditieFinala = cond1 && cond2 && cond3 && cond4 && cond5;
             if(conditieFinala)
                 art.style.display = "block";
         }
@@ -95,6 +100,8 @@ window.addEventListener("load", function(){
         document.getElementById("inp-pret2").value = 0;
         document.getElementById("infoRange1").innerHTML = " (0) ";
         document.getElementById("infoRange2").innerHTML = " (0) ";
+        document.getElementById("sel-toate2").selected = true;
+
 
 
     }
