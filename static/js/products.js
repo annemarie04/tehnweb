@@ -1,7 +1,10 @@
 window.addEventListener("load", function(){
     // bara de pret
-    document.getElementById("inp-pret").onchange = function(){
-        document.getElementById("infoRange").innerHTML = " (" + this.value + ") ";
+    document.getElementById("inp-pret1").onchange = function(){
+        document.getElementById("infoRange1").innerHTML = " (" + this.value + ") ";
+    }
+    document.getElementById("inp-pret2").onchange = function(){
+        document.getElementById("infoRange2").innerHTML = " (" + this.value + ") ";
     }
 
 
@@ -31,7 +34,9 @@ window.addEventListener("load", function(){
         }
 
 
-        var valPret = document.getElementById("inp-pret").value;
+        var valPretMin = document.getElementById("inp-pret1").value;
+        var valPretMax = document.getElementById("inp-pret2").value;
+
 
         var valCategorie = document.getElementById("inp-categorie").value;
 
@@ -43,7 +48,17 @@ window.addEventListener("load", function(){
 
             // filtrare nume
             let numeArt = art.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
-            let cond1 = (numeArt.startsWith(valNume));
+            let cond1;
+            // regex
+            if(valNume.search('([*])')){
+                let temp = valNume.split('*')[0] + '.*' + valNume.split('*')[1];
+                cond1 = (numeArt.match(`${temp}`));
+                
+            }
+            else{
+                cond1 = (numeArt.includes(valNume));
+            }
+
 
             // filtrare marime
             let marimeArt =  parseInt(art.getElementsByClassName("val-marime")[0].innerHTML);
@@ -51,7 +66,7 @@ window.addEventListener("load", function(){
 
             // filtrare pret
             let pretArt =  parseInt(art.getElementsByClassName("val-pret")[0].innerHTML);
-            let cond3 = (valPret <= pretArt);
+            let cond3 = (valPretMin <= pretArt && valPretMax >= pretArt);
 
             // filtare categorie colectie
             let categorieArt = art.getElementsByClassName("val-categorie")[0].innerHTML;
@@ -76,8 +91,11 @@ window.addEventListener("load", function(){
         document.getElementById("inp-nume").value = "";
         document.getElementById("i_rad4").checked = true;
         document.getElementById("sel-toate").selected = true;
-        document.getElementById("inp-pret").value = 0;
-        document.getElementById("infoRange").innerHTML = " (0) ";
+        document.getElementById("inp-pret1").value = 0;
+        document.getElementById("inp-pret2").value = 0;
+        document.getElementById("infoRange1").innerHTML = " (0) ";
+        document.getElementById("infoRange2").innerHTML = " (0) ";
+
 
     }
 
@@ -141,7 +159,7 @@ window.addEventListener("load", function(){
 
     //idk
     window.onkeydown=function(e){
-        console.log(e)
+        // console.log(e)
         if(e.key=='c' && e.altKey){
             if(! document.getElementById("psuma")){
                 let suma=0

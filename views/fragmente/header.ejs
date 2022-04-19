@@ -46,10 +46,34 @@
                 <li><a class="meniutranz">FAQ</a></li>
                 <li><a href="/contactus" class="meniutranz">Contact us</a></li>
                 <li><a href="/inregistrare" class="meniutranz">Inregistrare</a></li>
+                
+                <!-- <li ><div class="dropdown">
+                    <a id="dropbtn" class="dropbtn meniutranz "><$- locals.utilizator.username %></a></div>
+                    <div class="dropdown-content">
+                        <ul class="dropdown_menu sub-menu">
+                            <li><a href="/profil">Profil</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </li> -->
+                <% if(locals.utilizator) { %>
+                <li>
+                    <div class="dropdown">
+                        <a href="#profil" id="dropbtn" class="dropbtn meniutranz "><%- locals.utilizator.username %></a>
+                        <div class="dropdown-content">
+                            <ul class="dropdown_menu">
+                                <li><a href="/profil">Profil</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <% } %>
 
             </ul>
-
         </nav>
+
+        <!-- DARK MODE -->
     <p><button id="btn_tema">Dark Mode</button></p>
     <script>
         var tema = localStorage.getItem("tema");
@@ -60,5 +84,6 @@
 
     </script>
     </header>
+    
     <h1 class="titlu">Arason Unique Clothing</h1>
 

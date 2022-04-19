@@ -14,9 +14,31 @@
      <div class="header">
         <%- include('../fragmente/header'); %>
     </div>
+
+    <!-- GO TO TOP BTN -->
     <a href="#top" class="myBtn">&#8679;<span class="tooltiptext">Scroll Up</span></a>
+
     <main>
-        
+        <% if(!locals.utilizator) { %>
+        <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+
+            <p>
+                <label>
+                    Username: <input type="text" name="username" id="inp-username" value="prof<%= Math.floor(Math.random()*100000) %>" required pattern="[A-Za-z0-9]+">
+                </label>
+            </p>     
+
+            <p>
+                <label>
+                    Parola: <input id="parl" type="password" required  name="parola" value="">
+                </label>
+            </p>
+
+            <p> <input type="submit" value="login"></p>
+
+        </form>
+            <% } %>
+
         <div class="grid-container">
 
             <div class="prezentare">
@@ -26,7 +48,7 @@
                     style. With Arason, you can be transfigured from the ordinary to the extraordinary.</h3>
                 <h2 class="text3">Swipe for more!</h2>
             </div>
-
+            
             <div class="col-2 col-s-2">
                 <div class="calendar_event">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
                     suscipit

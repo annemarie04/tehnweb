@@ -15,9 +15,10 @@
     <div class="afisaj">
         <h1>Inregistrare utilizator</h1>
         
-        <% if (!locals.err) { %>
+        <% if (!locals.raspuns) { %>
 			<%-include("../fragmente/formular", {action: "/inreg"}) %>
-	<% } %>
+    <% } %>
+    
 	<% if(locals.raspuns) { %>
 	<%- locals.raspuns+"<br/>"%>
 	<% } %>
