@@ -14,7 +14,9 @@
          <!-- FILTRE -->
 
          <!-- INPUT TIP TEXT  -->
-        <label> Nume: <input type="text" id="inp-nume"></label>
+        <label id="label-nume"> Nume: <input type="text" id="inp-nume">
+            <span id= "eroare-nume" style="color:red; display: none;">Acest camp este introdus gresit</span></label>
+
         <br></br>
 
         <!-- INPUT TIP RANGE -->
@@ -54,15 +56,15 @@
         </div>
 
         <!-- INPUT TIP CHECKBOX -->
-        <input type="checkbox" id="soldout0" name="soldout0" value="false">
+        <input type="checkbox" id="soldout0" name="soldout0" value="false" checked>
         <label for="option0"> AVAILABLE</label><br>
-        <input type="checkbox" id="soldout1" name="soldout1" value="true">
+        <input type="checkbox" id="soldout1" name="soldout1" value="false" checked>
         <label for="option1"> SOLD OUT</label><br>
 
         <!-- TEXTAREA INPUT -->
         <label>Descriere</label>
         <br><br>
-        <textarea id="textarea" name="descriere" rows="4" cols="50">Descrieti produsul cautat aici.</textarea>
+        <textarea id="textarea" name="descriere" rows="4" cols="50" placeholder = "Descrieti aici articolul cautat..."></textarea>
         <br><br>
 
         <!-- SELECT SIMPLU -->
@@ -77,10 +79,10 @@
         <!-- SELECT MULTIPLU -->
 
         <label>Select multiplu:
-            <select id="inp-culoare" multiple>
-                < <option id="sel-toate3" selected value="toate">toate</option>
+            <select id="inp-culoare" multiple="multiple">
+                <option id="sel-toate-culoare" selected value="toate">toate</option>
                     <%   for (let culoare of locals.culori) { %>
-                    <option value="<%- culoare.culoare %>"><%- culoare.culoare %> </option>
+                    <option value="<%- culoare.culoare %>"><%- culoare.culoare %></option>
                     <% } %>
             </select>
         </label>
@@ -88,9 +90,10 @@
             <button id="filtrare">Filtreaza</button> <button id="resetare">Reseteaza</button><br />
             <button id="sortCrescNume">Sorteaza crescator dupa nume si lungimea descrierii</button>
             <button id="sortDescrescNume">Sorteaza descrescator dupa nume si lungimea descrierii</button>
+            <button id="p-medie">Medie preturi</button>
+
         </p>
 
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
 
 
         <!-- PRODUSE  -->
@@ -103,7 +106,7 @@
                     <h3 class="nume"> Name: <a href="/product/<%-prod.id %>"><span
                                 class="val-nume"><%- prod.nume%></span></a></h3>
                     <h4 class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></h4>
-                    <h4 class="val-descriere">Descriere: <span> <%- prod.descriere%></span></h4>
+                    <h4>Descriere: <span class="val-descriere"><%- prod.descriere%></span></h4>
                     <div style="display: flex">
 
                         <figure  style="width: 30%; float:left">
@@ -112,6 +115,7 @@
                                     style="width:100%;height:auto;" alt="[imagine <%- prod.nume %>]" />
                                 </a>
                         </figure>
+                        
                         <div class="info-prod" style="width: 70%; float:right">
                             <table>
                                 <tr>
@@ -120,7 +124,7 @@
                                 </tr>
                                 <tr>
                                     <td class="culoare"> Culoare: </td>
-                                    <td><span class="culoare"><%- prod.culoare %> </span></td>
+                                    <td><span class="val-culoare"><%- prod.culoare %></span></td>
                                 </tr>
                                 <tr>
                                     <td class="marime">Marime: </td>
@@ -139,7 +143,7 @@
                                 </tr>
                                 <tr>
                                     <td class="disponibil">Disponibil: </td>
-                                    <td><span class="disponibil"><%- prod.sold_out %> </span></td>
+                                    <td><span class="val-disponibil"><%- prod.sold_out %></span></td>
                                 </tr>
                                 <tr>
                                     <td class="an_colectie">An Colectie: </td>

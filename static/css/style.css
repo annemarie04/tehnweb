@@ -39,7 +39,7 @@ html {
 		font-size: 17px;
 	}
 }
-body {
+:root.light body {
 	--background_color: #7600f5;
 	--text_color: #a8a800;
 	--text_color2: white;
@@ -56,13 +56,59 @@ body {
 	height: 1000px;
 	margin: 0px;
 }
-body.dark{
-	--background_color: black;
+:root:not(.light) body{
+	--background_color: #330269;
 	--text_color: white;
 	--text_color2: #f5f400;
-	--border_color: #8819ff;
+	--border_color: #330269;
 	--border_color2:#a8a800;
 	--highlight_color:#7600f5 ;
+	/* --highlight_color: #f5f400; */
+	background-color: var(--background_color);
+	color: var(--text_color2);
+	margin: 0;
+	/* background-image: url("../resurse/background.png"); */
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding: 0px;
+	height: 1000px;
+	margin: 0px;
+}
+.theme-icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	box-shadow: var(--box-shadow);
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 0.5rem;
+	border-color: rgba(226, 232, 240, 0);
+	background-color: var(--primary-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	font-size: 1em;
+  }
+:root:not(.light) .theme-icon .fa-moon {
+	display: none;
+
+}
+  
+:root:not(.light) .theme-icon .fa-sun {
+	display: inline-block;
+	color: black;
+
+}
+  
+:root.light .theme-icon .fa-smoon {
+	display: inline-block;
+	color: white;
+
+}
+
+:root.light .theme-icon .fa-sun {
+	display: none;
+
 }
 
 main {
@@ -299,6 +345,11 @@ h6 {
 .footer {
 	grid-area: footer;
 	background-color: #f5f400;
+	color: var(--background_color);
+}
+.footer .address {
+	color: var(--background_color);
+
 }
 
 section {
@@ -790,3 +841,7 @@ tbody tr:hover {
 }
 
 /* TEST */
+/* BOOTSTRAP */
+.selector-for-some-widget {
+	box-sizing: content-box;
+  }

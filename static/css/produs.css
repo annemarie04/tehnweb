@@ -39,3 +39,6 @@ h2{
         width:95%;
     }
 }
+.accordion{
+    color: $indigo-400;
+}

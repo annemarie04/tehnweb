@@ -56,6 +56,9 @@
                         </ul>
                     </div>
                 </li> -->
+                <% if(locals.utilizator && locals.utilizator.rol == "admin") { %>
+                    <li><a href="/useri" class="meniutranz">Useri</a></li>
+                    <% } %>
                 <% if(locals.utilizator) { %>
                 <li>
                     <div class="dropdown">
@@ -69,20 +72,32 @@
                     </div>
                 </li>
                 <% } %>
-
+                
             </ul>
         </nav>
 
         <!-- DARK MODE -->
-    <p><button id="btn_tema">Dark Mode</button></p>
+    <p>
+        <button id="btn_tema" class="theme-icon">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+        </button>
+        <!-- <button id="btn_tema_light" style="font-size:12px; display:none">/button> -->
+</p>
+
+<!-- 
     <script>
         var tema = localStorage.getItem("tema");
     if(tema)
-        document.body.classList.add("dark");
+        {
+            document.body.classList.add("dark");
+            <p><button id="btn_tema" style="font-size:12px; display:none"><i class="fa fa-moon-o"></i></button>
+            <button id="btn_tema" style="font-size:12px; display: block"><i class="fa fa-sun-o"></i></button></p>
+     }
     else
         document.body.classList.remove("dark");
 
-    </script>
+    </script> -->
     </header>
     
     <h1 class="titlu">Arason Unique Clothing</h1>

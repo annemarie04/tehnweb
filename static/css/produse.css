@@ -15,12 +15,17 @@ body{
     grid-gap:1rem;
     background-color: var(--background_color);
 }
+
 .grid-produse .produs{
     border-radius: 2rem;
     box-shadow: 0px 0px 0.8rem 0.3rem grey;
     overflow: hidden;
     background-color: var(--highlight_color);
     color: var(--background_color);
+}
+:root:not(.light) .grid-produse .produs, h3, a, .selecteaza-cos, .val-descriere, .categorie{
+    color: var(--text_color2);
+    
 }
 
 /* .grid-produse .produs h3{
